@@ -1,0 +1,226 @@
+// EN + AR dictionaries — ported verbatim from the reference initLang().
+// EN values are the markup defaults; AR values are the reference's AR map.
+
+export type Lang = "en" | "ar";
+
+export const en = {
+  // nav
+  nav_about: "About",
+  nav_work: "Work",
+  nav_skills: "Skills",
+  nav_exp: "Experience",
+  nav_services: "Services",
+  nav_contact: "Contact",
+  cta_talk: "Let's Talk",
+  // hero
+  hero_avail: "AVAILABLE FOR WORK",
+  hero_role: "Video Editor · Colorist · Motion Designer",
+  hero_l1: "Transforming",
+  hero_l2: "Footage Into",
+  hero_l3: "Stories.",
+  hero_sub:
+    "I'm Kareem Anis — a Cairo-based video editor with 4+ years crafting cinematic edits, color grades and motion graphics for automotive, food, medical and creator brands across the MENA region.",
+  btn_reel: "Watch the Reel",
+  btn_hire: "Start a Project",
+  scroll: "Scroll",
+  // about
+  sec_about: "The Editor",
+  about_open: "OPEN TO WORK",
+  about_h1: "I don't just cut clips —",
+  about_h2: "I build the feeling behind them.",
+  about_p1:
+    "Over the last four years I've edited digital and advertising content using Adobe Premiere Pro, After Effects and CapCut — shaping short-form reels and long-form films that hold attention from the first frame. My work lives in the details: rhythm, color, sound and motion working as one.",
+  about_p2:
+    "I also produce full advertising campaigns end-to-end with AI tools like Veo 3, Grok, Gemini, Whisk and Nano Banana — merging traditional craft with new production pipelines to deliver premium content on tight deadlines.",
+  about_quote:
+    "\"Every project is a story. My job is to find its pulse — then cut everything that isn't it.\"",
+  stat_years: "Years Editing",
+  stat_projects: "Signature Projects",
+  stat_views: "Views Generated",
+  stat_brands: "Brands & Creators",
+  // grade
+  grade_label: "Color Grade",
+  grade_h1: "Same frame.",
+  grade_h2: "Two moods.",
+  grade_p:
+    "Color is half the story. Drag the handle to watch a flat, ungraded frame become a finished cinematic grade.",
+  grade_raw: "RAW",
+  grade_graded: "GRADED",
+  grade_hint: "◀ DRAG TO COMPARE ▶",
+  // work
+  sec_work: "Selected Work",
+  work_h: "Featured Cuts",
+  work_all: "View full archive →",
+  // skills
+  sec_skills: "The Toolkit",
+  skills_h: "Built in the timeline.",
+  skills_sw: "// Software",
+  skills_craft: "// Craft",
+  skills_ai: "// AI Video Production",
+  skills_ai_p:
+    "Full advertising campaigns produced end-to-end with generative pipelines.",
+  craft_1: "Color Grading",
+  craft_2: "Motion Graphics",
+  craft_3: "Sound Editing & Mixing",
+  craft_4: "Visual Effects",
+  craft_5: "Cinematic Editing",
+  craft_6: "Reels & Short-Form",
+  craft_7: "Visual Storytelling",
+  craft_8: "Audio Mixing",
+  // experience
+  sec_exp: "The Timeline",
+  exp_h: "Scenes so far",
+  exp1_t: "Freelance Video Editor & Content Creator",
+  exp1_s: "Reels · TikTok · YouTube · Advertising",
+  exp1_b1:
+    "Edited short- and long-form video for social platforms, from raw footage to final delivery.",
+  exp1_b2: "Premiere Pro, After Effects, CapCut & Topaz AI for enhancement and upscaling.",
+  exp1_b3: "Produced full AI campaigns with Whisk, Grok, Gemini, Nano Banana & Veo 3.",
+  exp1_b4: "Delivered high-quality content on tight deadlines for MENA brands & creators.",
+  exp2_t: "B.Sc. in Physical Education",
+  exp2_s: "Sadat City University · Monufia, Egypt",
+  exp2_b1:
+    "Specialized in Fitness Training & Bodybuilding — the discipline, patience and structure that now shape how I approach the edit bay.",
+  exp3_t: "Courses & Training",
+  // services
+  sec_services: "What I Deliver",
+  services_h: "Services on the slate",
+  svc1_t: "Video Editing",
+  svc1_p:
+    "Story-first cuts for short- and long-form — pacing, structure and rhythm that keep viewers watching.",
+  svc2_t: "Color Grading",
+  svc2_p:
+    "Cinematic looks and clean correction that give every frame a premium, consistent mood.",
+  svc3_t: "Motion Graphics",
+  svc3_p: "Animated titles, lower-thirds, logos and info design built in After Effects.",
+  svc4_t: "Short-Form & Reels",
+  svc4_p: "Scroll-stopping edits engineered for TikTok, Reels and Shorts retention.",
+  svc5_t: "Commercial & Brand Films",
+  svc5_p: "Full-cycle advertising videos for brands and product launches.",
+  svc6_t: "AI Video Production",
+  svc6_p:
+    "End-to-end campaigns generated and assembled with Veo 3, Grok, Gemini & more.",
+  // clients
+  sec_clients: "In Good Company",
+  clients_h: "Brands & creators I've cut for",
+  // contact
+  sec_contact: "Let's Roll",
+  contact_h1: "Let's make something",
+  contact_h2: "worth watching.",
+  contact_avail: "AVAILABLE FOR FREELANCE & FULL-TIME",
+  form_name: "Your Name",
+  form_email: "Email",
+  form_type: "Project Type",
+  form_msg: "The Brief",
+  form_send: "Send the Brief",
+  form_ok: "Brief received — I'll reply within 24 hours.",
+  // footer
+  foot_top: "Back to top",
+  foot_made: "EDITED, GRADED & DESIGNED IN CAIRO",
+} as const;
+
+export type I18nKey = keyof typeof en;
+
+export const ar: Partial<Record<I18nKey, string>> = {
+  nav_about: "نبذة",
+  nav_work: "الأعمال",
+  nav_skills: "المهارات",
+  nav_exp: "الخبرة",
+  nav_services: "الخدمات",
+  nav_contact: "تواصل",
+  cta_talk: "لنتحدث",
+  hero_avail: "متاح للعمل",
+  hero_role: "محرر فيديو · كولريست · موشن جرافيك",
+  hero_l1: "نحوّل",
+  hero_l2: "اللقطات إلى",
+  hero_l3: "حكايات.",
+  hero_sub:
+    "أنا كريم أنيس — محرر فيديو من القاهرة بخبرة تتجاوز 4 سنوات في صناعة المونتاج السينمائي والتصحيح اللوني والموشن جرافيك لعلامات السيارات والأطعمة والقطاع الطبي وصنّاع المحتوى في المنطقة العربية.",
+  btn_reel: "شاهد الريل",
+  btn_hire: "ابدأ مشروعك",
+  scroll: "مرّر",
+  sec_about: "المُحرّر",
+  about_open: "متاح للعمل",
+  about_h1: "أنا لا أقصّ المشاهد فقط —",
+  about_h2: "بل أصنع الإحساس الكامن خلفها.",
+  about_p1:
+    "خلال السنوات الأربع الماضية حرّرت محتوى رقمي وإعلاني باستخدام Adobe Premiere Pro وAfter Effects وCapCut — أصنع مقاطع قصيرة وطويلة تُمسك بالانتباه من اللقطة الأولى. عملي يعيش في التفاصيل: الإيقاع واللون والصوت والحركة تعمل ككيان واحد.",
+  about_p2:
+    "كما أنتج حملات إعلانية كاملة من البداية للنهاية باستخدام أدوات الذكاء الاصطناعي مثل Veo 3 وGrok وGemini وWhisk وNano Banana — أدمج الحرفية التقليدية بخطوط إنتاج جديدة لتقديم محتوى مميز في مواعيد ضيقة.",
+  about_quote: "«كل مشروع حكاية. مهمتي أن أجد نبضها — ثم أحذف كل ما عداه.»",
+  stat_years: "سنوات خبرة",
+  stat_projects: "مشروع مميز",
+  stat_views: "مشاهدة",
+  stat_brands: "علامة وصانع محتوى",
+  grade_label: "التصحيح اللوني",
+  grade_h1: "نفس الإطار.",
+  grade_h2: "مزاجان مختلفان.",
+  grade_p:
+    "اللون نصف الحكاية. اسحب المقبض لترى لقطة خام مسطّحة تتحوّل إلى تصحيح لوني سينمائي مكتمل.",
+  grade_raw: "خام",
+  grade_graded: "مُصحّح",
+  grade_hint: "◀ اسحب للمقارنة ▶",
+  sec_work: "أعمال مختارة",
+  work_h: "أبرز المونتاج",
+  work_all: "شاهد الأرشيف الكامل →",
+  sec_skills: "الأدوات",
+  skills_h: "صُنِعت داخل التايم لاين.",
+  skills_sw: "// البرامج",
+  skills_craft: "// الحرفة",
+  skills_ai: "// إنتاج بالذكاء الاصطناعي",
+  skills_ai_p: "حملات إعلانية كاملة تُنتَج من الألف إلى الياء عبر أدوات الذكاء التوليدي.",
+  craft_1: "التصحيح اللوني",
+  craft_2: "الموشن جرافيك",
+  craft_3: "تحرير ومكساج الصوت",
+  craft_4: "المؤثرات البصرية",
+  craft_5: "المونتاج السينمائي",
+  craft_6: "المحتوى القصير والريلز",
+  craft_7: "السرد البصري",
+  craft_8: "مزج الصوت",
+  sec_exp: "الخط الزمني",
+  exp_h: "المشاهد حتى الآن",
+  exp1_t: "محرر فيديو وصانع محتوى (عمل حر)",
+  exp1_s: "ريلز · تيك توك · يوتيوب · إعلانات",
+  exp1_b1: "تحرير فيديوهات قصيرة وطويلة لمنصات التواصل، من اللقطات الخام حتى التسليم النهائي.",
+  exp1_b2: "Premiere Pro وAfter Effects وCapCut وTopaz AI للتحسين ورفع الجودة.",
+  exp1_b3: "إنتاج حملات كاملة بالذكاء الاصطناعي عبر Whisk وGrok وGemini وNano Banana وVeo 3.",
+  exp1_b4: "تسليم محتوى عالي الجودة في مواعيد ضيقة لعلامات وصنّاع محتوى بالمنطقة العربية.",
+  exp2_t: "بكالوريوس التربية الرياضية",
+  exp2_s: "جامعة مدينة السادات · المنوفية، مصر",
+  exp2_b1:
+    "تخصص التدريب واللياقة وكمال الأجسام — الانضباط والصبر والبنية التي تشكّل الآن طريقتي في غرفة المونتاج.",
+  exp3_t: "الدورات والتدريب",
+  sec_services: "ما أقدّمه",
+  services_h: "الخدمات على الطاولة",
+  svc1_t: "مونتاج الفيديو",
+  svc1_p: "مونتاج يعتمد على الحكاية للمحتوى القصير والطويل — إيقاع وبنية يبقيان المشاهد.",
+  svc2_t: "التصحيح اللوني",
+  svc2_p: "إطلالات سينمائية وتصحيح نظيف يمنح كل لقطة مزاجًا مميزًا ومتناسقًا.",
+  svc3_t: "الموشن جرافيك",
+  svc3_p: "عناوين متحركة وشعارات وتصميم معلومات في After Effects.",
+  svc4_t: "المحتوى القصير والريلز",
+  svc4_p: "مونتاج يوقف التمرير مصمَّم لتيك توك والريلز والشورتس.",
+  svc5_t: "الأفلام التجارية والإعلانية",
+  svc5_p: "إنتاج إعلاني متكامل للعلامات وإطلاق المنتجات.",
+  svc6_t: "إنتاج فيديو بالذكاء الاصطناعي",
+  svc6_p: "حملات كاملة تُولَّد وتُجمَّع عبر Veo 3 وGrok وGemini وغيرها.",
+  sec_clients: "بصحبة كريمة",
+  clients_h: "علامات وصنّاع محتوى تعاونت معهم",
+  sec_contact: "لنبدأ التصوير",
+  contact_h1: "لنصنع شيئًا",
+  contact_h2: "يستحق المشاهدة.",
+  contact_avail: "متاح للعمل الحر والدوام الكامل",
+  form_name: "اسمك",
+  form_email: "البريد الإلكتروني",
+  form_type: "نوع المشروع",
+  form_msg: "الملخّص",
+  form_send: "أرسل الملخّص",
+  form_ok: "تم الاستلام — سأرد خلال 24 ساعة.",
+  foot_top: "العودة للأعلى",
+  foot_made: "مونتاج وتصحيح وتصميم في القاهرة",
+};
+
+export function translate(lang: Lang, key: I18nKey): string {
+  if (lang === "ar") return ar[key] ?? en[key];
+  return en[key];
+}
