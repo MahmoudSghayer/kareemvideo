@@ -53,6 +53,7 @@ html.lenis, html.lenis body { height: auto; }
 @keyframes glowPulse { 0%,100%{opacity:.5} 50%{opacity:.9} }
 @keyframes gradMove { 0%{background-position:0% 50%} 50%{background-position:100% 50%} 100%{background-position:0% 50%} }
 @keyframes sheen { 0%{transform:translateX(-120%) skewX(-18deg)} 100%{transform:translateX(220%) skewX(-18deg)} }
+@keyframes projSheen { 0%{transform:translateX(-140%) skewX(-18deg)} 100%{transform:translateX(320%) skewX(-18deg)} }
 @keyframes barPulse { 0%,100%{transform:scaleY(.35)} 50%{transform:scaleY(1)} }
 @keyframes loaderBar { to { transform: scaleX(1); } }
 @keyframes pulseRing { 0% { transform: scale(1); opacity: .7; } 100% { transform: scale(1.85); opacity: 0; } }
@@ -73,6 +74,7 @@ html.lenis, html.lenis body { height: auto; }
 /* clients cells */
 [data-client] { transition: border-color .4s, transform .4s; }
 [data-client]:hover { border-color: rgba(255,106,44,.4) !important; transform: translateY(-4px); }
+[data-client] img { transition: opacity .4s; }
 [data-client]:hover img { opacity: 1 !important; }
 
 /* marquee logos + pause on hover */
@@ -93,7 +95,7 @@ html.lenis, html.lenis body { height: auto; }
 [data-proj] [data-proj-play] { transition: transform .45s cubic-bezier(.16,1,.3,1), background .4s, border-color .4s; }
 [data-proj]:hover [data-proj-play] { transform: translate(-50%,-50%) scale(1.14); background: #FF6A2C; border-color: #FF6A2C; }
 [data-proj] [data-proj-sheen] { transform: translateX(-140%) skewX(-18deg); }
-[data-proj]:hover [data-proj-sheen] { animation: sheen 1.1s cubic-bezier(.5,0,.2,1); }
+[data-proj]:hover [data-proj-sheen] { animation: projSheen 1.1s cubic-bezier(.5,0,.2,1) forwards; }
 
 /* form inputs — border color driven imperatively by initForm (focus/blur/validate) */
 [data-input] { transition: border-color .3s; }

@@ -75,6 +75,15 @@ export function Nav() {
     };
   }, [menuOpen]);
 
+  // auto-close mobile menu when crossing to wide (mirrors applyResp: if (wide && open) setMenu(false))
+  useEffect(() => {
+    const onResize = () => {
+      if (window.innerWidth > 900) setMenuOpen(false);
+    };
+    window.addEventListener("resize", onResize);
+    return () => window.removeEventListener("resize", onResize);
+  }, []);
+
   const mono = { fontFamily: "var(--font-mono), monospace" } as const;
 
   return (
