@@ -55,22 +55,27 @@ export async function POST(req: Request) {
     `New project brief — kareem.video\n\n` +
     `Name: ${name}\nEmail: ${email}\nProject type: ${type || "—"}\n\nBrief:\n${message}\n`;
 
-  try {
-    const res = await fetch("https://api.resend.com/emails", {
+  const subject = `New brief — ${name}${type ? ` (${type})` : ""}`;
+  const sendFrom = (from: string) =>
+    fetch("https://api.resend.com/emails", {
       method: "POST",
       headers: {
         Authorization: `Bearer ${apiKey}`,
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({
-        from: "Kareem.video <contact@kareem.video>",
-        to: [social.inbox],
-        reply_to: email,
-        subject: `New brief — ${name}${type ? ` (${type})` : ""}`,
-        html,
-        text,
-      }),
+      body: JSON.stringify({ from, to: [social.inbox], reply_to: email, subject, html, text }),
     });
+
+  try {
+    // Preferred: branded sender on the verified domain.
+    let res = await sendFrom("Kareem.video <contact@kareem.video>");
+    // Fallback until the domain finishes verifying — Resend's shared sender can
+    // still deliver to the account's own inbox, so briefs never get lost.
+    if (!res.ok) {
+      const firstDetail = await res.text().catch(() => "");
+      console.warn("Resend primary send failed, falling back", res.status, firstDetail);
+      res = await sendFrom("Kareem.video Contact <onboarding@resend.dev>");
+    }
 
     if (!res.ok) {
       const detail = await res.text().catch(() => "");
