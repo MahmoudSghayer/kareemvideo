@@ -105,6 +105,22 @@ export function Footer() {
             RUNTIME <span ref={tcRef}>00:00:00:00</span>
           </span>
         </div>
+        <div
+          dir="ltr"
+          style={{
+            marginTop: 20,
+            textAlign: "center",
+            ...mono,
+            fontSize: 12,
+            letterSpacing: ".06em",
+            color: "#6B7079",
+          }}
+        >
+          Website made by{" "}
+          <a href="https://devora.designs" target="_blank" rel="noopener noreferrer">
+            Devora.designs
+          </a>
+        </div>
       </div>
     </footer>
   );
