@@ -86,6 +86,7 @@ export function Footer() {
           </button>
         </div>
         <div
+          data-foot-meta
           style={{
             display: "flex",
             flexWrap: "wrap",

@@ -131,6 +131,15 @@ html.lenis, html.lenis body { height: auto; }
   [data-contact-grid] { grid-template-columns: 1.1fr 1fr; }
 }
 
+/* footer meta row: stack + center once the 3 items no longer fit one line */
+@media (max-width: 900px) {
+  [data-foot-meta] {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+}
+
 /* reduced motion: kill decorative loops */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
