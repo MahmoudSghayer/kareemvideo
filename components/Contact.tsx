@@ -66,12 +66,20 @@ export function Contact() {
       i.addEventListener("blur", onBlur);
     });
 
-    const onSubmit = (e: SubmitEvent) => {
+    const errorEl = form.querySelector<HTMLElement>("[data-form-error]");
+    const btn = form.querySelector<HTMLButtonElement>("button[type=submit]");
+    const btnLabel = form.querySelector<HTMLElement>("[data-form-btn-label]");
+    const defaultLabel = btnLabel?.textContent || "";
+
+    const onSubmit = async (e: SubmitEvent) => {
       e.preventDefault();
+      if (errorEl) errorEl.style.display = "none";
       let ok = true;
       const name = form.querySelector<HTMLInputElement>("[name=name]");
       const email = form.querySelector<HTMLInputElement>("[name=email]");
+      const type = form.querySelector<HTMLSelectElement>("[name=type]");
       const msg = form.querySelector<HTMLTextAreaElement>("[name=message]");
+      const honeypot = form.querySelector<HTMLInputElement>("[name=company]");
       [name, email, msg].forEach((f) => {
         if (!f) return;
         const bad =
@@ -82,13 +90,48 @@ export function Contact() {
         if (bad) ok = false;
       });
       if (!ok) return;
-      form.querySelectorAll<HTMLElement>("[data-field]").forEach((f) => {
-        f.style.transition = "opacity .4s, height .4s";
-        f.style.opacity = ".4";
-      });
-      const btn = form.querySelector<HTMLElement>("button[type=submit]");
-      if (btn) btn.style.display = "none";
-      if (success) success.style.display = "flex";
+
+      // sending state
+      if (btn) {
+        btn.disabled = true;
+        btn.style.opacity = "0.75";
+      }
+      if (btnLabel) btnLabel.textContent = "Sending…";
+
+      try {
+        const res = await fetch("/api/contact", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            name: name?.value ?? "",
+            email: email?.value ?? "",
+            type: type?.value ?? "",
+            message: msg?.value ?? "",
+            company: honeypot?.value ?? "",
+          }),
+        });
+        const data = (await res.json().catch(() => ({}))) as { ok?: boolean; error?: string };
+        if (res.ok && data.ok) {
+          form.querySelectorAll<HTMLElement>("[data-field]").forEach((f) => {
+            f.style.transition = "opacity .4s, height .4s";
+            f.style.opacity = ".4";
+          });
+          if (btn) btn.style.display = "none";
+          if (success) success.style.display = "flex";
+        } else {
+          throw new Error(data.error || "Could not send. Please try again.");
+        }
+      } catch (err) {
+        if (errorEl) {
+          errorEl.textContent = err instanceof Error ? err.message : "Could not send. Please try again.";
+          errorEl.style.display = "flex";
+        }
+        if (btn) {
+          btn.disabled = false;
+          btn.style.opacity = "1";
+        }
+        if (btnLabel) btnLabel.textContent = defaultLabel;
+      }
     };
     form.addEventListener("submit", onSubmit);
 
@@ -206,6 +249,15 @@ export function Contact() {
                 style={{ ...inputStyle, resize: "vertical", fontFamily: "var(--font-archivo), sans-serif" }}
               />
             </div>
+            {/* honeypot — hidden from users, catches bots */}
+            <input
+              type="text"
+              name="company"
+              tabIndex={-1}
+              autoComplete="off"
+              aria-hidden="true"
+              style={{ position: "absolute", left: "-9999px", width: 1, height: 1, opacity: 0 }}
+            />
             <button
               type="submit"
               data-magnetic
@@ -227,7 +279,7 @@ export function Contact() {
                 boxShadow: "0 10px 40px rgba(255,106,44,.28)",
               }}
             >
-              <span>{t("form_send")}</span>
+              <span data-form-btn-label>{t("form_send")}</span>
               <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
                 <path d="M1 8H15M15 8L8 1M15 8L8 15" stroke="#08090C" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
@@ -249,6 +301,20 @@ export function Contact() {
               <span style={{ fontSize: 18 }}>✓</span>
               <span>{t("form_ok")}</span>
             </div>
+            <div
+              data-form-error
+              style={{
+                display: "none",
+                alignItems: "center",
+                gap: 10,
+                padding: 16,
+                background: "rgba(255,77,77,.08)",
+                border: "1px solid rgba(255,77,77,.35)",
+                borderRadius: 8,
+                color: "#ff9b9b",
+                fontSize: 14,
+              }}
+            />
           </Reveal>
 
           {/* direct */}
