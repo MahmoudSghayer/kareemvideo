@@ -108,17 +108,17 @@ export function Footer() {
         <div
           dir="ltr"
           style={{
-            marginTop: 20,
+            marginTop: 28,
             textAlign: "center",
             ...mono,
-            fontSize: 12,
+            fontSize: 13,
             letterSpacing: ".06em",
-            color: "#6B7079",
+            color: "#9AA0AA",
           }}
         >
           Website made by{" "}
-          <a href="https://devora.designs" target="_blank" rel="noopener noreferrer">
-            Devora.designs
+          <a href="https://devora.design" target="_blank" rel="noopener noreferrer">
+            Devora.design
           </a>
         </div>
       </div>
