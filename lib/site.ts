@@ -10,5 +10,6 @@ export const social = {
   // Public, branded contact address (Cloudflare Email Routing → forwards to the inbox below).
   email: "contact@kareem.video",
   // Private delivery inbox — where the contact form actually sends briefs. Not shown on the site.
-  inbox: "Kareemaniseg@gmail.com",
+  // Lowercase to exactly match the Resend account email (needed for the pre-verification fallback).
+  inbox: "kareemaniseg@gmail.com",
 };
