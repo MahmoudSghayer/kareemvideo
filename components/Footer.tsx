@@ -88,9 +88,9 @@ export function Footer() {
         <div
           data-foot-meta
           style={{
-            display: "flex",
-            flexWrap: "wrap",
-            justifyContent: "space-between",
+            display: "grid",
+            gridTemplateColumns: "1fr auto 1fr",
+            alignItems: "center",
             gap: 16,
             paddingTop: 26,
             borderTop: "1px solid rgba(255,255,255,.07)",
@@ -100,9 +100,9 @@ export function Footer() {
             color: "#6B7079",
           }}
         >
-          <span>© {year} KAREEM ANIS · VIDEO EDITOR</span>
-          <span>{t("foot_made")}</span>
-          <span dir="ltr">
+          <span style={{ justifySelf: "start" }}>© {year} KAREEM ANIS · VIDEO EDITOR</span>
+          <span style={{ justifySelf: "center" }}>{t("foot_made")}</span>
+          <span style={{ justifySelf: "end" }} dir="ltr">
             RUNTIME <span ref={tcRef}>00:00:00:00</span>
           </span>
         </div>
